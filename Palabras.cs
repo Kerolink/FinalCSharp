@@ -37,8 +37,13 @@ class Palabras
 
     public void Anagrama()
     {
-        string palabra1 = "roma";
-        string palabra2 = "amor";
+        string? palabra1 = "";
+        string? palabra2 = "";
+
+        WriteLine("Ingrese una palabra");
+        palabra1 = ReadLine();
+        WriteLine("Ingrese otra palabra");
+        palabra2 = ReadLine();
 
         char[] letras1 = palabra1.ToLower().ToCharArray();
         char[] letras2 = palabra2.ToLower().ToCharArray();
@@ -63,16 +68,53 @@ class Palabras
 
     public void ordenarLista()
     {
-        string[] nombres = { "Juan", "Maria", "Ana", "Pedro" };
-
-        Array.Sort(nombres);
-
-        WriteLine("Lista ordenada alfabéticamente:");
-
-        foreach (string nombre in nombres)
+        // Creamos la lista y las variables de control
+        var input_list = new List<object>();
+        var loop = true;
+        var self_destruct = true;
+        // Proceso
+        try
         {
-            WriteLine(nombre);
+            // Mientras loop sea True preguntaremos al usuario si quiere anadir palabras
+            while (loop == true)
+            {
+                WriteLine("Añade una palabra a la lista, no añada nada para dejar de añadir palabras: ");
+                var user_input = ReadLine();
+                // Si no se introduce nada loop cambia a False y se cierra el bucle
+                if (user_input == "")
+                {
+                    loop = false;
+                }
+                else
+                {
+                    // Si se introduce una palabra se asigna al final de la lista de input_list
+                    input_list.Add(user_input!.ToString());
+                    // Tambien asignaremos self_destruct False
+                    self_destruct = false;
+                }
+            }
+            // Salida
+            // Si al menos se introdujo un valor mostraremos la lista ordenada alfabéticamente
+            if (self_destruct == false)
+            {
+                Console.WriteLine("A continuación aparecen las palabras que a introducido por orden alfabético: ");
+                input_list.Sort();
+                foreach (Object o in input_list)
+                {
+                    Console.WriteLine(o);
+                }
+            }
+            else
+            {
+                // Si el usuario no llegó a introducir ni un solo valor, self_destruct seguirá siendo True y mostrará un mensaje
+                Console.WriteLine("No has introducido nada :( ");
+            }
         }
+        catch
+        {
+            Console.WriteLine("Error");
+        }
+
         WriteLine();
         WriteLine("Presiona Enter para continuar");
         ReadLine();

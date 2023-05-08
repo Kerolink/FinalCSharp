@@ -4,25 +4,70 @@ class Numeros
 {
     public void MenorMayor()
     {
-
-        int[] numeros = { 5, 3, 8, 1, 7, 2 };
-        int mayor = numeros[0];
-        int menor = numeros[0];
-
-        foreach (int numero in numeros)
+        // Entrada
+        // Creamos las variables; a Mayor le asignamos un valor valor bajo
+        int Mayor = 0;
+        // Y con Menor asignamos un valor enorme
+        int Menor = 999999999;
+        // Creamos la lista y las variables de control
+        var input_list = new List<int>();
+        var loop = true;
+        var self_destruct = true;
+        // Proceso
+        try
         {
-            if (numero > mayor)
+            // Mientras loop sea True preguntaremos al usuario si quiere anadir numeros
+            while (loop == true)
             {
-                mayor = numero;
+                WriteLine("Añade un número a la lista, no añada nada para dejar de añadir números: ");
+                var user_input = ReadLine();
+                // Si no se introduce nada loop cambia a False y se cierra el bucle
+                if (user_input == "")
+                {
+                    loop = false;
+                }
+                else
+                {
+                    // Si se introduce un numero se asigna al final de la lista de input_list
+                    input_list.Add(Convert.ToInt32(user_input));
+                    // Tambien asignaremos self_destruct False
+                    self_destruct = false;
+                }
             }
-            if (numero < menor)
+            // Para cada valor de la lista, compararemos si es mayor o menor
+            foreach (var x in input_list)
             {
-                menor = numero;
+                // Si x es mayor que Mayor asignamos a Mayor el valor de x
+                if (x > Mayor)
+                {
+                    Mayor = x;
+                }
+                // Si x es menor que Menor asignamos a Menor el valor de x
+                // Aqui habría problemas si iniciamos ambas variables a 0 porque ningun numero es menor a 0
+                if (x < Menor)
+                {
+                    Menor = x;
+                }
+            }
+            // Salida
+            // Si al menos se introdujo un valor mostraremos Mayor y Menor
+            if (self_destruct == false)
+            {
+                Console.WriteLine("El número mayor es {0}", Mayor);
+                Console.WriteLine($"El número menor es {Menor}");
+            }
+            else
+            {
+                // Si el usuario no llegó a introducir ni un solo número, self_destruct seguirá siendo True y mostrará un mensaje
+                Console.WriteLine("No introdujiste nada :( ");
             }
         }
+        catch
+        {
+            // El programa dará error si el usuario introduce letras o espacios en lugar de numeros
+            Console.WriteLine("Error");
+        }
 
-        WriteLine("El mayor número es: " + mayor);
-        WriteLine("El menor número es: " + menor);
         WriteLine();
         WriteLine("Presiona Enter para continuar");
         ReadLine();
@@ -105,22 +150,61 @@ class Numeros
 
     public void SumaNumerosPares()
     {
-        List<int> numeros = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        int suma = 0;
 
-        foreach (int num in numeros)
+        var input_list = new List<int>();
+        var loop = true;
+        var self_destruct = true;
+        // Proceso
+        try
         {
-            if (num % 2 == 0)
-                suma += num;
-        }
+            // Mientras loop sea True preguntaremos al usuario si quiere anadir numeros
+            while (loop == true)
+            {
+                WriteLine("Añade un número a la lista, no añada nada para dejar de añadir números: ");
+                var user_input = ReadLine();
+                // Si no se introduce nada loop cambia a False y se cierra el bucle
+                if (user_input == "")
+                {
+                    loop = false;
+                }
+                else
+                {
+                    // Si se introduce un numero se asigna al final de la lista de input_list
+                    input_list.Add(Convert.ToInt32(user_input));
+                    // Tambien asignaremos self_destruct False
+                    self_destruct = false;
+                }
+            }
+            // Salida
+            // Si al menos se introdujo un valor mostraremos resultado
+            if (self_destruct == false)
+            {
+                int suma = 0;
 
-        WriteLine("La suma de los números pares es {0}", suma);
+                foreach (int num in input_list)
+                {
+                    if (num % 2 == 0)
+                        suma += num;
+                }
+
+                WriteLine("La suma de los números pares es {0}", suma);
+            }
+            else
+            {
+                // Si el usuario no llegó a introducir ni un solo número, self_destruct seguirá siendo True y mostrará un mensaje
+                Console.WriteLine("No introdujiste nada :( ");
+            }
+        }
+        catch
+        {
+            // El programa dará error si el usuario introduce letras o espacios en lugar de numeros
+            Console.WriteLine("Error");
+        }
 
         WriteLine();
         WriteLine("Presiona Enter para continuar");
         ReadKey();
     }
-
 
     public void NumeroPositivoNegativoCero()
     {
@@ -148,9 +232,48 @@ class Numeros
 
     public void MediaLista()
     {
-        int[] numeros = { 10, 20, 30, 40, 50 };
-        double media = numeros.Average();
-        WriteLine("La media es: " + media);
+        var input_list = new List<int>();
+        var loop = true;
+        var self_destruct = true;
+        // Proceso
+        try
+        {
+            // Mientras loop sea True preguntaremos al usuario si quiere anadir numeros
+            while (loop == true)
+            {
+                WriteLine("Añade un número a la lista, no añada nada para dejar de añadir números: ");
+                var user_input = ReadLine();
+                // Si no se introduce nada loop cambia a False y se cierra el bucle
+                if (user_input == "")
+                {
+                    loop = false;
+                }
+                else
+                {
+                    // Si se introduce un numero se asigna al final de la lista de input_list
+                    input_list.Add(Convert.ToInt32(user_input));
+                    // Tambien asignaremos self_destruct False
+                    self_destruct = false;
+                }
+            }
+            // Salida
+            // Si al menos se introdujo un valor mostraremos resultado
+            if (self_destruct == false)
+            {
+                double media = input_list.Average();
+                WriteLine("La media es: " + media);
+            }
+            else
+            {
+                // Si el usuario no llegó a introducir ni un solo número, self_destruct seguirá siendo True y mostrará un mensaje
+                Console.WriteLine("No introdujiste nada :( ");
+            }
+        }
+        catch
+        {
+            // El programa dará error si el usuario introduce letras o espacios en lugar de numeros
+            Console.WriteLine("Error");
+        }
 
         WriteLine();
         WriteLine("Presiona Enter para continuar");
@@ -159,20 +282,58 @@ class Numeros
 
     public void EliminarDuplicados()
     {
-        List<int> numeros = new List<int>() { 10, 20, 30, 20, 50 };
-
-        List<int> numerosSinDuplicados = new List<int>();
-
-        foreach (int numero in numeros)
+        var input_list = new List<int>();
+        var loop = true;
+        var self_destruct = true;
+        // Proceso
+        try
         {
-            if (!numerosSinDuplicados.Contains(numero))
+            // Mientras loop sea True preguntaremos al usuario si quiere anadir numeros
+            while (loop == true)
             {
-                numerosSinDuplicados.Add(numero);
+                WriteLine("Añade un número a la lista, no añada nada para dejar de añadir números: ");
+                var user_input = ReadLine();
+                // Si no se introduce nada loop cambia a False y se cierra el bucle
+                if (user_input == "")
+                {
+                    loop = false;
+                }
+                else
+                {
+                    // Si se introduce un numero se asigna al final de la lista de input_list
+                    input_list.Add(Convert.ToInt32(user_input));
+                    // Tambien asignaremos self_destruct False
+                    self_destruct = false;
+                }
+            }
+            // Salida
+            // Si al menos se introdujo un valor mostraremos resultado
+            if (self_destruct == false)
+            {
+                List<int> numerosSinDuplicados = new List<int>();
+
+                foreach (int numero in input_list)
+                {
+                    if (!numerosSinDuplicados.Contains(numero))
+                    {
+                        numerosSinDuplicados.Add(numero);
+                    }
+                }
+
+                WriteLine("Números originales: " + string.Join(", ", input_list));
+                WriteLine("Números sin duplicados: " + string.Join(", ", numerosSinDuplicados));
+            }
+            else
+            {
+                // Si el usuario no llegó a introducir ni un solo número, self_destruct seguirá siendo True y mostrará un mensaje
+                Console.WriteLine("No introdujiste nada :( ");
             }
         }
-
-        WriteLine("Números originales: " + string.Join(", ", numeros));
-        WriteLine("Números sin duplicados: " + string.Join(", ", numerosSinDuplicados));
+        catch
+        {
+            // El programa dará error si el usuario introduce letras o espacios en lugar de numeros
+            Console.WriteLine("Error");
+        }
 
         WriteLine();
         WriteLine("Presiona Enter para continuar");
