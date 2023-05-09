@@ -42,8 +42,18 @@ class Palabras
 
         WriteLine("Ingrese una palabra");
         palabra1 = ReadLine();
+        if (palabra1 == null)
+        {
+            WriteLine("Palabra inválida");
+            return;
+        }
         WriteLine("Ingrese otra palabra");
         palabra2 = ReadLine();
+        if (palabra2 == null)
+        {
+            WriteLine("Palabra inválida");
+            return;
+        }
 
         char[] letras1 = palabra1.ToLower().ToCharArray();
         char[] letras2 = palabra2.ToLower().ToCharArray();
