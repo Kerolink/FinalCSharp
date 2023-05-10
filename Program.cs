@@ -40,79 +40,63 @@ do
     switch (menuSelection)
     {
         case "1":
-            var numeros = new Numeros();
-            numeros.MenorMayor();
+            new Numeros().MenorMayor();
             break;
 
         case "2":
-            numeros = new Numeros();
-            numeros.ParImpar();
+            new Numeros().ParImpar();
             break;
 
         case "3":
-            var anyos = new Fechas();
-            anyos.AnyoBisiesto();
+            new Fechas().AnyoBisiesto();
             break;
 
         case "4":
-            var palabras = new Palabras();
-            palabras.palindromo();
+            new Palabras().Palindromo();
             break;
 
         case "5":
-            palabras = new Palabras();
-            palabras.ordenarLista();
+            new Palabras().OrdenarLista();
             break;
 
         case "6":
-            numeros = new Numeros();
-            numeros.factorial();
+            new Numeros().Factorial();
             break;
 
         case "7":
-            numeros = new Numeros();
-            numeros.NumeroPrimo();
+            new Numeros().NumeroPrimo();
             break;
 
         case "8":
-            var formas = new Formas();
-            formas.AreaVolumenCubo();
+            new Formas().AreaVolumenCubo();
             break;
 
         case "9":
-            numeros = new Numeros();
-            numeros.SumaNumerosPares();
+            new Numeros().SumaNumerosPares();
             break;
 
         case "10":
-            numeros = new Numeros();
-            numeros.NumeroPositivoNegativoCero();
+            new Numeros().NumeroPositivoNegativoCero();
             break;
 
         case "11":
-            numeros = new Numeros();
-            numeros.MediaLista();
+            new Numeros().MediaLista();
             break;
 
         case "12":
-            var juegos = new Juegos();
-            juegos.AdivinarNumero();
+            new Juegos().AdivinarNumero();
             break;
 
         case "13":
-            palabras = new Palabras();
-            palabras.Anagrama();
-
+            new Palabras().Anagrama();
             break;
 
         case "14":
-            numeros = new Numeros();
-            numeros.EliminarDuplicados();
+            new Numeros().EliminarDuplicados();
             break;
 
         case "15":
-            numeros = new Numeros();
-            numeros.Capicua();
+            new Numeros().Capicua();
             break;
 
         default:

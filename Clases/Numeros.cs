@@ -95,7 +95,7 @@ class Numeros
         ReadLine();
     }
 
-    public void factorial()
+    public void Factorial()
     {
         int num = 0, factorial = 1;
 

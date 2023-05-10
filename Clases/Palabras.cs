@@ -2,7 +2,7 @@ using static System.Console;
 
 class Palabras
 {
-    public void palindromo()
+    public void Palindromo()
     {
         Write("Ingrese una palabra o frase: ");
         string? texto = ReadLine();
@@ -76,7 +76,7 @@ class Palabras
         ReadLine();
     }
 
-    public void ordenarLista()
+    public void OrdenarLista()
     {
         // Creamos la lista y las variables de control
         var input_list = new List<object>();
