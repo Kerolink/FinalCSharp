@@ -1,5 +1,6 @@
 # FinalCSharp
-Se encuentra en la rama main /n
+Se encuentra en la rama main
+
 El ejercicio está en la rama master
 
 # “Instrucciones:”
